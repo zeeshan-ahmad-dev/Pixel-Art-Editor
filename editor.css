@@ -1,0 +1,88 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    background-color: blueviolet;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.navbar, .container {
+    background-color: rgb(28, 28, 29);
+    width: 90%;
+    max-width: 800px; /* Ensure the container doesn't exceed 800px */
+    border-radius: 3px;
+}
+
+.navbar {
+    padding: 1em;
+    margin-bottom: 1em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn, input {
+    height: 35px;
+    padding: 0 1em;
+}
+
+.color {
+    padding: 0 .25em;
+    width: 100px;
+    margin: 0 1em;
+}
+
+.container {
+    --size: 16; /* Default grid size for desktop */
+    height: 800px;
+    display: grid;
+    grid-template-columns: repeat(var(--size), 1fr);
+    grid-template-rows: repeat(var(--size), 1fr);
+    gap: 3px;
+    padding: 3px;
+}
+
+.pixel {
+    background-color: rgb(61, 61, 61);
+    border-radius: 2px;
+}
+
+/* Media queries for responsiveness */
+@media (max-width: 768px) {
+    body {
+        padding: 0;
+        margin: 0;
+    }
+    .navbar {
+        display: block;
+    }
+    .navbar .color, .size {
+        width: 4rem;
+    }
+    .navbar div:first-child {
+        display: flex;
+        align-items: center;
+        gap: .2rem;
+    }
+    .container {
+        --size: 12; /* Smaller grid for tablets */
+        height: 600px; /* Adjusted height */
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        --size: 8; /* Smaller grid for mobile */
+        height: 400px; /* Adjusted height */
+    }
+}
